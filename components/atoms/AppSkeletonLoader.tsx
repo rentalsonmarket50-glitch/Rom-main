@@ -6,10 +6,10 @@ interface SkeletonLoaderProps {
   count?: number;
 }
 
-const SkeletonLoader: FC<SkeletonLoaderProps> = ({ 
-  className = '', 
+const SkeletonLoader: FC<SkeletonLoaderProps> = ({
+  className = '',
   variant = 'card',
-  count = 1 
+  count = 1,
 }) => {
   const baseClasses = 'animate-pulse bg-gray-200 rounded';
 
@@ -35,4 +35,3 @@ const SkeletonLoader: FC<SkeletonLoaderProps> = ({
 };
 
 export default SkeletonLoader;
-

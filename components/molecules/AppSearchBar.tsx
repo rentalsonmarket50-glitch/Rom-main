@@ -36,7 +36,7 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
   const [searchMenu, setSearchMenu] = useState<ESearchMenu | null>(null);
   // data
   const [{ location, propertyType, select }, dispatch] = useDataContext();
-  
+
   // handler
   const handleOnBlur = (event?: FocusEvent<HTMLElement>) => {
     const { relatedTarget } = event || {};
@@ -143,7 +143,12 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
                   title="Property Type"
                   placeholder="Property Type"
                   active={searchMenu === ESearchMenu.PROPERTY_TYPE}
-                  value={propertyType ? propertyTypes.find(t => t.value === propertyType)?.label || propertyType : ''}
+                  value={
+                    propertyType
+                      ? propertyTypes.find((t) => t.value === propertyType)?.label ||
+                        propertyType
+                      : ''
+                  }
                   onFocus={() => setSearchMenu(ESearchMenu.PROPERTY_TYPE)}
                   onBlur={handleOnBlur}
                   onClear={() => {
@@ -158,11 +163,16 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
                           key={type.value}
                           type="button"
                           onClick={() => {
-                            dispatch({ type: DATA_ACTION_TYPES.SET_PROPERTY_TYPE, payload: type.value });
+                            dispatch({
+                              type: DATA_ACTION_TYPES.SET_PROPERTY_TYPE,
+                              payload: type.value,
+                            });
                             handleOnBlur();
                           }}
                           className={`w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors ${
-                            propertyType === type.value ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                            propertyType === type.value
+                              ? 'bg-blue-50 text-blue-600 font-medium'
+                              : 'text-gray-700'
                           }`}
                         >
                           {type.label}
@@ -179,7 +189,11 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
                   title="Select"
                   placeholder="Select"
                   active={searchMenu === ESearchMenu.SELECT}
-                  value={select ? selectOptions.find(o => o.value === select)?.label || select : ''}
+                  value={
+                    select
+                      ? selectOptions.find((o) => o.value === select)?.label || select
+                      : ''
+                  }
                   onFocus={() => setSearchMenu(ESearchMenu.SELECT)}
                   onBlur={handleOnBlur}
                   onClear={() => {
@@ -196,11 +210,16 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
                           key={option.value}
                           type="button"
                           onClick={() => {
-                            dispatch({ type: DATA_ACTION_TYPES.SET_SELECT, payload: option.value });
+                            dispatch({
+                              type: DATA_ACTION_TYPES.SET_SELECT,
+                              payload: option.value,
+                            });
                             handleOnBlur();
                           }}
                           className={`w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors ${
-                            select === option.value ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                            select === option.value
+                              ? 'bg-blue-50 text-blue-600 font-medium'
+                              : 'text-gray-700'
                           }`}
                         >
                           {option.label}
@@ -223,8 +242,7 @@ const AppSearchBar: FC<IAppSearchBarProps> = ({
                 isSearch={!!searchMenu}
               >
                 {/* Empty wrapper for experiences */}
-                <AppSearchOptionWrapper className="left-0">
-                </AppSearchOptionWrapper>
+                <AppSearchOptionWrapper className="left-0"></AppSearchOptionWrapper>
               </AppSearchOptionButton>
             )}
           </form>

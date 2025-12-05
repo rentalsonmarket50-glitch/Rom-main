@@ -12,10 +12,10 @@ interface FilterSection {
   isOpen: boolean;
 }
 
-export const PropertyFilters: FC<PropertyFiltersProps> = ({ 
+export const PropertyFilters: FC<PropertyFiltersProps> = ({
   propertyType = 'House/Flat',
   onFilterChange,
-  onPropertyTypeChange 
+  onPropertyTypeChange,
 }) => {
   const [selectedPropertyType, setSelectedPropertyType] = useState(propertyType);
   const [openSections, setOpenSections] = useState({
@@ -46,7 +46,7 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
       onPropertyTypeChange(type);
     }
     // Reset category filters when type changes
-    setSelectedFilters(prev => ({ ...prev, category: [] }));
+    setSelectedFilters((prev) => ({ ...prev, category: [] }));
   };
 
   const clearAllFilters = () => {
@@ -59,25 +59,25 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
   };
 
   const toggleSection = (section: string) => {
-    setOpenSections(prev => ({
+    setOpenSections((prev) => ({
       ...prev,
-      [section]: !prev[section as keyof typeof prev]
+      [section]: !prev[section as keyof typeof prev],
     }));
   };
 
   const handleCategoryToggle = (category: string) => {
-    setSelectedFilters(prev => {
+    setSelectedFilters((prev) => {
       const newCategories = prev.category.includes(category)
-        ? prev.category.filter(c => c !== category)
+        ? prev.category.filter((c) => c !== category)
         : [...prev.category, category];
       return { ...prev, category: newCategories };
     });
   };
 
   const handleFurnishedToggle = (type: string) => {
-    setSelectedFilters(prev => {
+    setSelectedFilters((prev) => {
       const newFurnished = prev.furnished.includes(type)
-        ? prev.furnished.filter(f => f !== type)
+        ? prev.furnished.filter((f) => f !== type)
         : [...prev.furnished, type];
       return { ...prev, furnished: newFurnished };
     });
@@ -89,12 +89,34 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
       case 'PG':
         return ['AC Room', 'AC Single Bed', 'Non AC-Room', 'Single Bed'];
       case 'Room':
-        return ['2 Room with kitchen', '3 Room with kitchen', 'Room with kitchen', 'Room with washroom', 'Single Bed', 'Single Bed with kitchen'];
+        return [
+          '2 Room with kitchen',
+          '3 Room with kitchen',
+          'Room with kitchen',
+          'Room with washroom',
+          'Single Bed',
+          'Single Bed with kitchen',
+        ];
       case 'Commercial':
-        return ['Co-working', 'Office', 'PG Building', 'Shop', 'Showroom', 'Single Chair'];
+        return [
+          'Co-working',
+          'Office',
+          'PG Building',
+          'Shop',
+          'Showroom',
+          'Single Chair',
+        ];
       case 'House/Flat':
       default:
-        return ['1 BHK', '2 BHK', '3 BHK', '4 BHK', '4+ BHK', 'Annexy', 'Studio Apartment'];
+        return [
+          '1 BHK',
+          '2 BHK',
+          '3 BHK',
+          '4 BHK',
+          '4+ BHK',
+          'Annexy',
+          'Studio Apartment',
+        ];
     }
   };
 
@@ -106,21 +128,17 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
     'Family',
     'Family & Boys',
     'Family & Girls',
-    'Company'
+    'Company',
   ];
 
-  const furnishedOptions = [
-    'Fully Furnished',
-    'Semi Furnished',
-    'Unfurnished'
-  ];
+  const furnishedOptions = ['Fully Furnished', 'Semi Furnished', 'Unfurnished'];
 
   const popularSearches = [
     'PG in Chandigarh | PG for boys and girls in Chandigarh',
     'Independent Builder Floor for Sale in Chandigarh - Builder Floors in Chandigarh',
     'PG in Sector 22 Chandigarh',
     'PG in Sector 21 Chandigarh',
-    'PG in Sector 17 Chandigarh'
+    'PG in Sector 17 Chandigarh',
   ];
 
   return (
@@ -128,7 +146,7 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-gray-900">Filters</h2>
-          <button 
+          <button
             onClick={clearAllFilters}
             className="text-sm text-blue-600 hover:text-blue-700 hover:underline"
           >
@@ -187,7 +205,11 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                     onChange={() => handleCategoryToggle(category)}
                     className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 checked:bg-blue-600 checked:border-blue-600"
                   />
-                  <span className={`text-gray-700 ${selectedFilters.category.includes(category) ? 'font-medium' : ''}`}>
+                  <span
+                    className={`text-gray-700 ${
+                      selectedFilters.category.includes(category) ? 'font-medium' : ''
+                    }`}
+                  >
                     {category}
                   </span>
                 </label>
@@ -218,10 +240,12 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                     type="number"
                     placeholder="Min"
                     value={selectedFilters.priceRange[0]}
-                    onChange={(e) => setSelectedFilters(prev => ({
-                      ...prev,
-                      priceRange: [Number(e.target.value), prev.priceRange[1]]
-                    }))}
+                    onChange={(e) =>
+                      setSelectedFilters((prev) => ({
+                        ...prev,
+                        priceRange: [Number(e.target.value), prev.priceRange[1]],
+                      }))
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
                   />
                 </div>
@@ -231,10 +255,12 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                     type="number"
                     placeholder="Max"
                     value={selectedFilters.priceRange[1]}
-                    onChange={(e) => setSelectedFilters(prev => ({
-                      ...prev,
-                      priceRange: [prev.priceRange[0], Number(e.target.value)]
-                    }))}
+                    onChange={(e) =>
+                      setSelectedFilters((prev) => ({
+                        ...prev,
+                        priceRange: [prev.priceRange[0], Number(e.target.value)],
+                      }))
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
                   />
                 </div>
@@ -245,10 +271,12 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                 max="500000"
                 step="1000"
                 value={selectedFilters.priceRange[1]}
-                onChange={(e) => setSelectedFilters(prev => ({
-                  ...prev,
-                  priceRange: [prev.priceRange[0], Number(e.target.value)]
-                }))}
+                onChange={(e) =>
+                  setSelectedFilters((prev) => ({
+                    ...prev,
+                    priceRange: [prev.priceRange[0], Number(e.target.value)],
+                  }))
+                }
                 className="w-full"
               />
               <div className="flex items-center justify-between text-sm text-gray-500">
@@ -288,10 +316,14 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                     type="radio"
                     name="tenant"
                     checked={selectedFilters.tenant === tenant}
-                    onChange={() => setSelectedFilters(prev => ({ ...prev, tenant }))}
+                    onChange={() => setSelectedFilters((prev) => ({ ...prev, tenant }))}
                     className="w-4 h-4 border-gray-300 text-blue-600 focus:ring-blue-500 checked:bg-blue-600 checked:border-blue-600"
                   />
-                  <span className={`text-gray-700 ${selectedFilters.tenant === tenant ? 'font-medium' : ''}`}>
+                  <span
+                    className={`text-gray-700 ${
+                      selectedFilters.tenant === tenant ? 'font-medium' : ''
+                    }`}
+                  >
                     {tenant}
                   </span>
                 </label>
@@ -331,7 +363,11 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
                     onChange={() => handleFurnishedToggle(type)}
                     className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 checked:bg-blue-600 checked:border-blue-600"
                   />
-                  <span className={`text-gray-700 ${selectedFilters.furnished.includes(type) ? 'font-medium' : ''}`}>
+                  <span
+                    className={`text-gray-700 ${
+                      selectedFilters.furnished.includes(type) ? 'font-medium' : ''
+                    }`}
+                  >
                     {type}
                   </span>
                 </label>
@@ -377,4 +413,3 @@ export const PropertyFilters: FC<PropertyFiltersProps> = ({
     </div>
   );
 };
-

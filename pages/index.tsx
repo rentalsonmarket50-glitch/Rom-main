@@ -45,7 +45,7 @@ const Home: FC<IHomeDataProps> = ({ exploreNearby, liveAnywhere }) => {
       <main>
         {/* hero */}
         <AppHero />
-        
+
         {/* Category Bar */}
         <AppCategoryBar />
 
@@ -356,7 +356,6 @@ const Home: FC<IHomeDataProps> = ({ exploreNearby, liveAnywhere }) => {
             },
           ]}
         />
-
       </main>
 
       {/* Top Agents */}

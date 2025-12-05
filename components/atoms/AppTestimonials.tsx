@@ -59,7 +59,9 @@ const AppTestimonials: FC = () => {
                   <StarIcon key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="mb-6 text-gray-700 leading-relaxed">"{testimonial.text}"</p>
+              <p className="mb-6 text-gray-700 leading-relaxed">
+                &quot;{testimonial.text}&quot;
+              </p>
               <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                   <Image

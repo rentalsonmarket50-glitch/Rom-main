@@ -34,4 +34,3 @@ const AppCategoryBar: FC = () => {
 };
 
 export default AppCategoryBar;
-

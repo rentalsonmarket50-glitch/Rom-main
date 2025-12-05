@@ -36,4 +36,3 @@ const AppPlaceCardSkeleton: FC = () => {
 };
 
 export default AppPlaceCardSkeleton;
-

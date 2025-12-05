@@ -68,9 +68,7 @@ const AppTopAgents: FC<AppTopAgentsProps> = ({ onNavigate }) => {
     <section className="py-12 bg-white">
       <div className="container">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl mb-2">
-            Top Agents
-          </h2>
+          <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl mb-2">Top Agents</h2>
           <p className="text-gray-600">Connect with our verified property experts</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -103,8 +101,12 @@ const AppTopAgents: FC<AppTopAgentsProps> = ({ onNavigate }) => {
                 <p className="mb-3 text-sm text-gray-500">{agent.location}</p>
                 <div className="flex items-center justify-center gap-1 mb-4">
                   <StarIcon className="h-4 w-4 text-yellow-400 fill-current" />
-                  <span className="text-sm font-semibold text-gray-900">{agent.rating}</span>
-                  <span className="text-xs text-gray-500">({agent.properties} Properties)</span>
+                  <span className="text-sm font-semibold text-gray-900">
+                    {agent.rating}
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    ({agent.properties} Properties)
+                  </span>
                 </div>
                 <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
                   View Properties

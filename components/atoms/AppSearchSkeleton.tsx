@@ -40,4 +40,3 @@ const AppSearchSkeleton: FC = () => {
 };
 
 export default AppSearchSkeleton;
-

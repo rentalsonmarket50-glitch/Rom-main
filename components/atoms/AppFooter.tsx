@@ -80,7 +80,9 @@ const AppFooter = () => {
         </div>
         <div className="flex flex-col items-center justify-between py-5 text-sm text-gray-400 border-t border-gray-200 lg:py-6 lg:flex-row">
           <div className="flex flex-col items-center order-last lg:flex-row lg:order-none">
-            <span className="mr-0 text-center lg:mr-4">© 2024 Rentals On Market, Inc.</span>
+            <span className="mr-0 text-center lg:mr-4">
+              © 2024 Rentals On Market, Inc.
+            </span>
             <ul className="flex space-x-6 list-disc">
               <li className="hover:underline">
                 <Link href="/">

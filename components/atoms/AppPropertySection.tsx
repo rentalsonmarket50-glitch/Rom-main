@@ -58,10 +58,11 @@ const AppPropertySection: FC<AppPropertySectionProps> = ({
     if (scrollContainerRef.current) {
       const scrollAmount = 300;
       const currentScroll = scrollContainerRef.current.scrollLeft;
-      const newScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
-      
+      const newScroll =
+        direction === 'left'
+          ? currentScroll - scrollAmount
+          : currentScroll + scrollAmount;
+
       scrollContainerRef.current.scrollTo({
         left: newScroll,
         behavior: 'smooth',
@@ -120,7 +121,7 @@ const AppPropertySection: FC<AppPropertySectionProps> = ({
           </div>
         </div>
         <div className="relative">
-          <div 
+          <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
             className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 scroll-smooth"
@@ -158,16 +159,24 @@ const AppPropertySection: FC<AppPropertySectionProps> = ({
                     {/* Details */}
                     <div className="flex flex-col flex-grow min-h-[100px]">
                       <div className="flex items-center justify-between mb-2 gap-2">
-                        <span className="text-sm text-gray-500 truncate flex-shrink">{property.location}</span>
+                        <span className="text-sm text-gray-500 truncate flex-shrink">
+                          {property.location}
+                        </span>
                         <div className="flex items-center flex-shrink-0">
                           <StarIcon className="h-4 text-primary" />
-                          <span className="ml-1 text-sm font-semibold whitespace-nowrap">{property.rating}</span>
+                          <span className="ml-1 text-sm font-semibold whitespace-nowrap">
+                            {property.rating}
+                          </span>
                           {property.reviews > 0 && (
-                            <span className="ml-1 text-sm text-gray-500 whitespace-nowrap">({property.reviews})</span>
+                            <span className="ml-1 text-sm text-gray-500 whitespace-nowrap">
+                              ({property.reviews})
+                            </span>
                           )}
                         </div>
                       </div>
-                      <h3 className="mb-2 text-base font-semibold line-clamp-2 min-h-[48px]">{property.title}</h3>
+                      <h3 className="mb-2 text-base font-semibold line-clamp-2 min-h-[48px]">
+                        {property.title}
+                      </h3>
                       <div className="mt-auto pt-2">
                         <div className="flex items-baseline">
                           <span className="text-lg font-semibold">{property.price}</span>

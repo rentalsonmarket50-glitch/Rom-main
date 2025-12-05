@@ -39,7 +39,10 @@ const AppPreLaunch: FC = () => {
           <p className="mb-6 text-base md:text-lg text-gray-600">
             Be the first to know about new features and exclusive property listings.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+          >
             <input
               type="email"
               value={email}

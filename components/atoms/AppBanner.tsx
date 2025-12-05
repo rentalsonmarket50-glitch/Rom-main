@@ -26,7 +26,8 @@ const AppBanner = () => {
                 Find Your Dream Home Today
               </h2>
               <p className="mb-4 text-sm text-white sm:text-lg drop-shadow-md max-w-md">
-                Trusted by thousands of satisfied customers. Discover premium rental properties with verified listings and expert support.
+                Trusted by thousands of satisfied customers. Discover premium rental
+                properties with verified listings and expert support.
               </p>
               <button className="px-6 py-3 text-sm font-semibold text-blue-600 bg-white rounded-lg sm:text-base hover:bg-blue-50 transition-colors shadow-lg">
                 Explore Properties

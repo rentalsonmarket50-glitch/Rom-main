@@ -26,7 +26,7 @@ const Search = ({ searchResults }) => {
   const [activePanel, setActivePanel] = useState<'none' | 'filter' | 'map'>('none');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedPropertyType, setSelectedPropertyType] = useState<string>('House/Flat');
-  
+
   // data
   const [location, setLocation] = useState<string>('');
   const [propertyType, setPropertyType] = useState<string>('');
@@ -40,7 +40,7 @@ const Search = ({ searchResults }) => {
     setSelect(query.select?.toString() || '');
     if (query.checkIn) setCheckIn(new Date(query.checkIn?.toString()));
     if (query.checkOut) setCheckOut(new Date(query.checkOut?.toString()));
-    
+
     // Simulate loading
     setTimeout(() => setIsLoading(false), 1000);
   }, [query]);
@@ -54,7 +54,6 @@ const Search = ({ searchResults }) => {
     window.addEventListener('scroll', handleOnScroll);
     return () => window.removeEventListener('scroll', handleOnScroll);
   });
-
 
   const getCenterMap = () => {
     const coords = searchResults.map((result) => ({
@@ -83,7 +82,10 @@ const Search = ({ searchResults }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <AppHead />
-      <AppHeader searchPage query={{ location, propertyType, select, checkIn, checkOut }} />
+      <AppHeader
+        searchPage
+        query={{ location, propertyType, select, checkIn, checkOut }}
+      />
       <main className="flex-grow mt-[86px] duration-500">
         <div className="flex relative">
           {/* Left Side - Filter/Map Panel (Same Position) */}
@@ -210,11 +212,15 @@ const Search = ({ searchResults }) => {
                   <h1 className="mb-2 text-2xl font-semibold md:text-3xl lg:text-4xl lg:mb-7">
                     {location ? `Properties in ${location}` : 'All Properties'}
                   </h1>
-                  
+
                   {/* list - 3 cards per row */}
                   <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {searchResults.map((result) => (
-                      <AppPlaceCard key={result.long + result.lat} data={result} gridView={true} />
+                      <AppPlaceCard
+                        key={result.long + result.lat}
+                        data={result}
+                        gridView={true}
+                      />
                     ))}
                   </section>
                 </div>
@@ -226,9 +232,7 @@ const Search = ({ searchResults }) => {
         {/* Mobile Map Toggle */}
         <button
           className={`${
-            visibleMapButton
-              ? 'translate-y-0'
-              : 'translate-y-[80px]'
+            visibleMapButton ? 'translate-y-0' : 'translate-y-[80px]'
           } lg:hidden duration-300 fixed flex items-center px-5 py-3 text-sm text-white translate-x-1/2 bg-blue-600 rounded-full right-1/2 bottom-20 shadow-lg active:scale-90 z-50 hover:bg-blue-700`}
           onClick={handleMapToggle}
         >

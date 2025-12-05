@@ -6,29 +6,47 @@ const AppHowItWorks: FC = () => {
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
         </svg>
       ),
       title: 'Search Properties',
-      description: 'Explore Flat, PG, Apartment, House & Room For Rent across Mohali, Chandigarh, Kharar, Zirakpur, and Panchkula by applying diverse filters based on your preferences and desired locations.',
+      description:
+        'Explore Flat, PG, Apartment, House & Room For Rent across Mohali, Chandigarh, Kharar, Zirakpur, and Panchkula by applying diverse filters based on your preferences and desired locations.',
     },
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
         </svg>
       ),
       title: 'Choose Properties',
-      description: 'All rental property details are listed comprehensively, enabling you to review and analyze property information conveniently from your preferred location.',
+      description:
+        'All rental property details are listed comprehensively, enabling you to review and analyze property information conveniently from your preferred location.',
     },
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
         </svg>
       ),
       title: 'Rent Properties',
-      description: 'Register as an owner or broker and upload rental property images along with key details, including the complete address and expected rent.',
+      description:
+        'Register as an owner or broker and upload rental property images along with key details, including the complete address and expected rent.',
     },
   ];
 
@@ -42,7 +60,10 @@ const AppHowItWorks: FC = () => {
               How Rentals On Market Works
             </h2>
             <p className="mb-8 text-base text-gray-600 md:text-lg leading-relaxed">
-              Discover a diverse range of verified property listings available for rent in your desired location on Rentals On Market. Explore detailed property information and seamlessly connect with property owners without incurring any brokerage fees. Find your perfect rental space hassle-free!
+              Discover a diverse range of verified property listings available for rent in
+              your desired location on Rentals On Market. Explore detailed property
+              information and seamlessly connect with property owners without incurring
+              any brokerage fees. Find your perfect rental space hassle-free!
             </p>
             <Link href="/search">
               <a className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl cursor-pointer">
@@ -63,9 +84,7 @@ const AppHowItWorks: FC = () => {
                     {step.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="mb-2 text-xl font-bold text-gray-900">
-                      {step.title}
-                    </h3>
+                    <h3 className="mb-2 text-xl font-bold text-gray-900">{step.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
@@ -81,4 +100,3 @@ const AppHowItWorks: FC = () => {
 };
 
 export default AppHowItWorks;
-
