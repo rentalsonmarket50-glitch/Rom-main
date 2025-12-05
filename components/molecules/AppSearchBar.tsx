@@ -16,6 +16,7 @@ enum ESearchMenu {
   LOCATION = 'location',
   PROPERTY_TYPE = 'propertyType',
   SELECT = 'select',
+  GUESTS = 'guests',
 }
 
 interface IAppSearchBarProps {
